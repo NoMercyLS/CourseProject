@@ -1,6 +1,8 @@
 # MyRecipe
+
 [![PyPI](https://img.shields.io/pypi/pyversions/Django)](https://pypi.org/project/Django/)
 [![PyPI](https://img.shields.io/badge/django-v3.0-blue)](https://pypi.org/project/django-flexible-subscriptions/)
+
 Этот проект был создан в рамках дисциплины "Разработка на платформе JAVA"
 Автор: *студент гр. ПС-31, Булатников Сергей*
 # Описание проекта
