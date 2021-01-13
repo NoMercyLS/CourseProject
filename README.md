@@ -1,4 +1,6 @@
 # MyRecipe
+[![PyPI](https://img.shields.io/pypi/pyversions/Django)](https://pypi.org/project/Django/)
+[![PyPI](https://img.shields.io/badge/django-v3.0-blue)](https://pypi.org/project/django-flexible-subscriptions/)
 Этот проект был создан в рамках дисциплины "Разработка на платформе JAVA"
 Автор: *студент гр. ПС-31, Булатников Сергей*
 # Описание проекта
@@ -12,7 +14,11 @@
 
 Задание напрямую зависит от цели проекта: разработка сервиса по подбору рецептов.
 # Установка зависимостей
-В случае, если Вы не работаете в IDE или Ваша IDE не смогла автоматически загрузить зависимости из файла requirements.txt, то проследуйте следующей инструкции:
+В случае, если Вы не работаете в IDE или Ваша IDE не смогла автоматически загрузить зависимости из файла requirements.txt, то попытайтесь вызвать инсталляцию из файла:
+```
+    pip install -r requirements.txt
+```
+Если даже это не сработало, то необходимо устанавливать пакеты самостоятельно:
 1. Необходимо установить фреймворк Django
 ```
     pip install django
@@ -31,7 +37,11 @@
 ```
 # Запуск приложения
 Чтобы запустить приложение откройте терминал и введите данную комманду:
+
 MacOS ✓ | Linux ✓| Windows✓
 ```
-python3 manage.py runserver
+    python3 manage.py migrate
+```
+```
+    python3 manage.py runserver
 ```
