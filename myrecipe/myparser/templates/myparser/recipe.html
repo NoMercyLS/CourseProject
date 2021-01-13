@@ -1,0 +1,26 @@
+{% extends 'myparser/layout.html' %}
+
+{% block content %}
+<h4 class="display-4">{{title}}</h4>
+<img class="rounded img-thumbnail" src="{{img_url}}"/>
+<p>Calories amount: {{energyValue}} kcal.</p>
+<p>Servings count: {{servingsCount}} servings</p>
+<p>Cooking time: {{cookingTime}} minutes</p>
+<a class="btn btn-secondary" href="{{src}}">Source</a>
+<h5 class="mt-2">Ingredients</h5>
+<ul class="list-group">
+    {%for product in products%}
+    <li class="list-group-item list-group-item-dark">
+        {{product.ingredient.title}}, {%if product.quantity%}{{product.quantity}}{%endif%} {{product.unit.title}}
+    </li>
+    {% endfor %}
+</ul>
+<h5 class="mt-2">Instruction</h5>
+<ul class="list-group mt-2">
+    {%for instruction in instructions%}
+    <li class="list-group-item list-group-item-dark">
+        {{instruction.stepDescription}}
+    </li>
+    {% endfor %}
+</ul>
+{%endblock%}

@@ -1,0 +1,50 @@
+{% extends 'myparser/layout.html' %}
+
+{% block content %}
+<div class="container pt-3">
+    <h4 class="pb-3 display-4">Recipes</h4>
+    {%if not recipes%}
+    <h3>Recipes were not found</h3>
+    {%else%}
+    {%for recipe in recipes %}
+    <div class="dropdown mt-3">
+        <p>
+            <button class="btn btn-secondary btn-block collapsed" type="button" data-toggle="collapse"
+                    data-target="#collapseExample{{forloop.counter}}"
+                    aria-expanded="false" aria-controls="collapseExample{{forloop.counter}}">
+                {{recipe.title}}
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample{{forloop.counter}}">
+            <div class="bg-dark text-light">
+                <h4>{{recipe.title}}</h4>
+                <img class="rounded img-thumbnail" src="{{recipe.img_url}}"/>
+                <p class="mt-3">Calories amount: {{recipe.energyValue}} kcal.</p>
+                <p>Servings count: {{recipe.servingsCount}} servings</p>
+                <p>Cooking time: {{recipe.cookingTime}} minutes</p>
+                <a class="btn btn-secondary btn-lg" href="{{recipe.src}}">Source page</a>
+                <h5 class="mt-4">Ingredients</h5>
+                <ul class="list-group">
+                    {%for product in recipe.products%}
+                    <li class="list-group-item list-group-item-dark">
+                        {{product.ingredient.title}}, {%if product.quantity%}{{product.quantity}}{%endif%}
+                        {{product.unit.title}}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <h5 class="mt-4">Instruction</h5>
+                <ul class="list-group mt-2">
+                    {%for instruction in recipe.instructions%}
+                    <li class="list-group-item list-group-item-dark">
+                        {{instruction.stepDescription}}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+</div>
+
+{% endblock %}
